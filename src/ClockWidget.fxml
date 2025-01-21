@@ -1,29 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-    fx:controller="ClockWidgetController" stylesheets="@styles/clockStyles.css" fx:id="root"
-    styleClass="clock-anchor-pane" minWidth="300">
+<AnchorPane fx:id="root" styleClass="clock-anchor-pane" stylesheets="@styles/clockStyles.css"
+    xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="ClockWidgetController">
     <children>
-        <Label fx:id="timeLabel" alignment="CENTER" text="TIME" textAlignment="CENTER"
-            stylesheets="@styles/clockStyles.css" styleClass="clock-label" AnchorPane.leftAnchor="5"
-            AnchorPane.rightAnchor="5" AnchorPane.topAnchor="5" AnchorPane.bottomAnchor="5" />
-        <Button fx:id="exitBtn" onAction="#onExitButtonClick"
-            stylesheets="@styles/clockStyles.css" styleClass="clock-exit"
-            AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0">
+        <Button fx:id="settingsBtn" onAction="#onSettingsButtonClick" styleClass="clock-button"
+            stylesheets="@styles/clockStyles.css" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
             <graphic>
-                <ImageView fx:id="exitIcon" fitHeight="14" fitWidth="14">
+                <ImageView fx:id="settingsIcon" fitHeight="16" fitWidth="16">
+                    <image>
+                        <Image url="@images/settings-icon.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Label fx:id="timeLabel" alignment="CENTER" minWidth="-1" prefWidth="-1"
+            styleClass="clock-label" stylesheets="@styles/clockStyles.css" text="TIME"
+            textAlignment="CENTER" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5"
+            AnchorPane.bottomAnchor="5" />
+
+        <Button fx:id="exitBtn" onAction="#onExitButtonClick" styleClass="clock-button"
+            stylesheets="@styles/clockStyles.css" AnchorPane.rightAnchor="0"
+            AnchorPane.topAnchor="0">
+            <graphic>
+                <ImageView fx:id="exitIcon" fitHeight="16" fitWidth="16">
                     <image>
                         <Image url="@images/exit-icon.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Button>
+
+        <AnchorPane fx:id="settingsMenu" prefWidth="130.0" prefHeight="130.0"
+            AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5" AnchorPane.topAnchor="5"
+            visible="false" managed="false">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="9.0" text="Text opacity"
+                    textFill="WHITE" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+                <Slider fx:id="textOpacitySlider" layoutY="31.0"
+                    onMouseReleased="#onTextOpacityChange" prefHeight="14.0" value="100.0"
+                    AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+                <Label alignment="CENTER" layoutY="45.0" text="Background opacity" textFill="WHITE"
+                    AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+                <Slider fx:id="bgOpacitySlider" layoutY="62.0" onMouseReleased="#onBgOpacityChange"
+                    prefHeight="14.0" value="70.0" AnchorPane.leftAnchor="0"
+                    AnchorPane.rightAnchor="0" />
+                <Label alignment="CENTER" layoutY="79.0" text="Text size" textFill="WHITE"
+                    AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+                <Slider fx:id="textSizeSlider" layoutY="94.0" max="300.0"
+                    onMouseReleased="#onTextSizeChange"
+                    prefHeight="14.0" value="50.0"
+                    AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>

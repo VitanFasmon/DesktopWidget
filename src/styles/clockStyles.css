@@ -8,9 +8,7 @@
   -fx-text-fill: white;
   -fx-font-size: 50px;
 }
-.clock-exit {
+.clock-button {
   -fx-background-color: rgba(0, 0, 0, 0);
-  -fx-padding: 0px;
-  -fx-background-insets: 0px;
-  -fx-border-insets: 0px;
+  -fx-padding: 2px;
 }
