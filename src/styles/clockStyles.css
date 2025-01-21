@@ -1,0 +1,16 @@
+.clock-anchor-pane {
+  -fx-background-color: rgba(0, 0, 0, 0.7);
+  -fx-padding: 10px;
+  -fx-background-radius: 10px;
+}
+
+.clock-label {
+  -fx-text-fill: white;
+  -fx-font-size: 50px;
+}
+.clock-exit {
+  -fx-background-color: rgba(0, 0, 0, 0);
+  -fx-padding: 0px;
+  -fx-background-insets: 0px;
+  -fx-border-insets: 0px;
+}
